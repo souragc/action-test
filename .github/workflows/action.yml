@@ -10,7 +10,7 @@ jobs:
       - name: testing
         run: |
           echo Hellow okowkrks
-          echo {{pull_request.commits[0].name}}
+          echo ${{pull_request.commits[0].name}}
           cd aaa
           ls
           aaa
