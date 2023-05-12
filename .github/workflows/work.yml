@@ -1,0 +1,21 @@
+on:
+  workflow_run:
+    workflows:
+      - action.yml
+    types: [completed]
+    
+jobs:
+  aaa:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: testing
+        run: |
+          echo Hellow okowkrks
+          echo ${{ github.event.pull_request.commits[0].author.name }}
+          echo ${{ github.event.pull_request.commits[0].committer.name }}
+          echo ${{ github.event.commits[0].author.name }}
+          echo ${{ github.event.commits[0].committer.name }}
+          echo ${{ github.event.pull_request.user.login }}
+          echo ${{ github.event.pull_request.user.email }}
+          echo ${{ secrets.GITHUB_TOKEN }} | cut -c1-5
