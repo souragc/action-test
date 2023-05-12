@@ -2,7 +2,7 @@ name: abcdef
 on:
   workflow_run:
     workflows:
-      - action.yml
+      - abcdef
     types: [completed]
     
 jobs:
