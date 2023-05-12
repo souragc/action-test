@@ -8,4 +8,8 @@ jobs:
     
     steps:
       - name: testing
-        run: echo "{{github.user}}"
+        run: |
+          echo Hellow okowkrks
+          cd aaa
+          ls
+          aaa
