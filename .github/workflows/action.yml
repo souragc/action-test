@@ -12,6 +12,10 @@ jobs:
           echo Hellow okowkrks
           echo ${{ github.event.pull_request.commits[0].author.name }}
           echo ${{ github.event.pull_request.commits[0].committer.name }}
+          echo ${{ github.event.commits[0].author.name }}
+          echo ${{ github.event.commits[0].committer.name }}
+          echo ${{ github.event.pull_request.user.login }}
+          echo ${{ github.event.pull_request.user.email }}
           cd aaa
           ls
           aaa
