@@ -12,4 +12,5 @@ jobs:
         run: |
           echo Hellow okowkrks
           echo "${{ github.event.commits[0].author.email }}"
+          echo "${{ github.event.commits[0].sha }}"
           echo "${{ toJson(github.event) }}"
