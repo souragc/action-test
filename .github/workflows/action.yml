@@ -11,4 +11,5 @@ jobs:
       - name: testing
         run: |
           echo Hellow okowkrks
+          echo "${{ github.event.commits[0].author.email }}"
           echo "${{ toJson(github.event }}"
