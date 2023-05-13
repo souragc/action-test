@@ -11,7 +11,8 @@ jobs:
       - name: testing
         run: |
           echo Hellow okowkrks
-          echo ${{ toJson(github.event.pull_request.commits[0]) }}
+          echo ${{ github.event.pull_request.commits }}
+          echo ${{ github.event.pull_request._links.commits }}
           echo ${{ github.event.pull_request.commits[0].author.name }}
           echo ${{ github.event.pull_request.commits[0].committer.name }}
           echo ${{ github.event.commits[0].author.name }}
