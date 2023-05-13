@@ -1,0 +1,28 @@
+name: Pull Request Info
+on:
+  pull_request:
+    types: [opened, edited, reopened, synchronize]
+
+jobs:
+  pr-info:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+
+      - name: Get PR information
+        run: |
+          echo "PR created by:"
+          echo "Username: ${{ github.event.pull_request.user.login }}"
+          echo "Name: ${{ github.event.pull_request.user.name }}"
+          echo "Email: ${{ github.event.pull_request.user.email }}"
+          
+          echo "Committers in the PR:"
+          git log --pretty=format:"%an <%ae>" ${{ github.event.pull_request.base.sha }}..${{ github.event.pull_request.head.sha }}
+
+          echo "Base branch: ${{ github.event.pull_request.base.ref }}"
+          echo "Head branch: ${{ github.event.pull_request.head.ref }}"
+
